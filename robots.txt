@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /
+Host: medvejonok.com
+
+User-agent: Browsershots
+Disallow:

@@ -1,0 +1,434 @@
+<!doctype html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Nord Home</title>
+  <meta name="viewport" content="width=1010">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="f/css/main.css">
+  <!--[if lte IE 9]><link rel="stylesheet" href="f/css/ie.css"><![endif]-->
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,300,700,300italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="f/fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
+  <link rel="shortcut icon" href="favicon.ico">
+  <script src="f/js/jquery-1.10.2.min.js"></script>
+  <script src="f/js/jquery-ui-1.10.4.min.js"></script>
+  <script src="f/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+  <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script src="f/js/jquery.touchSwipe.min.js"></script>
+  <script src="f/js/jquery.transit.min.js"></script>
+  <script src="f/js/common.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+  
+<script>
+	$(function() 
+	{
+		var min = 45;
+		var max = 150;
+		var def_min = 60;
+		var def_max = 100;
+		
+		$( "#amount-from" ).val(def_min);
+		$( "#amount-to" ).val(def_max);
+		
+		$( "#slider-range" ).slider({
+		range: true,
+		min: min,
+		max: max,
+		values: [ def_min, def_max ],
+		slide: function( event, ui ) {
+		$( "#amount-from" ).val(ui.values[ 0 ]);
+		$( "#amount-to" ).val(ui.values[ 1 ]);
+		}
+		});
+		
+		$("#amount-from").on("focusout",function(e){
+		
+		if( parseInt($( "#amount-from" ).val()) < min)
+		{
+			$( "#amount-from" ).val(min);		
+		}
+		else if( parseInt($( "#amount-from" ).val()) > parseInt($( "#amount-to" ).val()) )
+		{
+			
+			$( "#amount-from" ).val(parseInt($( "#amount-to" ).val()-1));
+		}
+		
+		$("#slider-range").slider("values", 0, $( "#amount-from" ).val());
+		});
+		
+		$("#amount-to").on("focusout",function(e){
+		if( parseInt($( "#amount-to" ).val()) > max)
+		{
+			$( "#amount-to" ).val(max);		
+		}
+		else if( parseInt($( "#amount-to" ).val()) < parseInt($( "#amount-from" ).val()) )
+		{
+			
+			$( "#amount-to" ).val(parseInt($( "#amount-from" ).val())+1);
+		}	
+		$("#slider-range").slider("values", 1, $( "#amount-to" ).val());
+		});
+	});
+	
+</script>
+
+</head>
+
+<body>
+  <div class="b-header">
+    <div class="b-container">
+      <div class="b-header__wrap">
+        <div class="b-header__logo">
+          <a href="/">
+            <img src="f/i/logo.png" alt="">
+          </a>
+        </div>
+        <div class="b-header__content">
+          <div class="b-header__company">
+            <ul>
+              <li><a href="#">О компании</a>
+              </li>
+              <li><a href="#">Отзывы</a>
+              </li>
+              <li><a href="#">Выполненные работы</a>
+              </li>
+              <li><a href="#">База знаний</a>
+              </li>
+            </ul>
+          </div>
+          <div class="b-header__contacts">
+            <div class="b-header__phone">
+              <a href="#callback" class="modal-inline iconize-phone" title="Обратный звонок">
+                <span class="b-header__phonecode">(4852) </span>68-07-02</a>
+            </div>
+            <a href="#order" class="b-header__order modal-inline">Заявка на расчет</a>
+          </div>
+          <div class="b-header__menu">
+            <ul>
+              <li><a href="#">Проекты</a>
+              </li>
+              <li><a href="#">Фундамент</a>
+              </li>
+              <li><a href="#">Дома</a>
+              </li>
+              <li><a href="#">Бани</a>
+              </li>
+              <li><a href="#">Беседки</a>
+              </li>
+              <li><a href="#">Цены</a>
+              </li>
+              <li><a href="#">Контакты</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+	
+<div class="b-content">
+	<div class="b-wrap">
+		<div class="clear" name = "up">
+			<div class = "title-wrap" style = "margin-top: 20px;">
+				<h2 class = "main-title" style = "float: left;">Проекты</h2>
+			</div>
+			<a href = "#" class = "title-link">Проекты бань</a>
+			<a href = "#" class = "title-link">Проекты беседок</a>
+			<div style = "clear: both;"></div>
+			<div class = "tech-filter">
+				<span class = "tech-filter-title">Технологии</span>
+				<span class = "tech-filter-price-per-m">Цена</br> за м<sup>2</sup>, <span class = "rouble">Р</span> </span>
+				<img class = "tech-filter-back" src="f/i/filter-back.png" alt="">
+				<span class = "tech-filter-price first" style = "margin-left: 105px;">10 000 <span class = "rub">Р</span></span>
+				<span class = "tech-filter-price even" style = "margin-left: 45px;">12 500 <span class = "rub">Р</span></span>
+				<span class = "tech-filter-price " style = "margin-left: 65px;">15 000 <span class = "rub">Р</span></span>
+				<span class = "tech-filter-price even" style = "margin-left: 65px;">17 500 <span class = "rub">Р</span></span>
+				<span class = "tech-filter-price " style = "margin-left: 70px;">20 000 <span class = "rub">Р</span></span>
+				<span class = "tech-filter-price even" style = "margin-left: 70px;">22 500 <span class = "rub">Р</span></span>
+				<span class = "tech-filter-price " style = "margin-left: 40px;">25 000 <span class = "rub">Р</span></span>
+				
+				<input  id="1tech" class = "tech-filter__tech__input tech-filter__tech__input_1" type="checkbox" name = "techs" checked />
+				<label  class = "tech-filter__tech__label tech-filter__tech__label_1"  for="1tech">Каркасные</br>дома</label>
+				<input  id="2tech" class = "tech-filter__tech__input tech-filter__tech__input_2" type="checkbox" name = "techs"/>
+				<label  class = "tech-filter__tech__label tech-filter__tech__label_2" for="2tech">Профилированный</br>брус</label>
+				<input  id="3tech" class = "tech-filter__tech__input tech-filter__tech__input_3" type="checkbox" name = "techs"/>
+				<label  class = "tech-filter__tech__label tech-filter__tech__label_3" for="3tech">Оцилиндрованне</br>бревно</label>
+				<input  id="4tech" class = "tech-filter__tech__input tech-filter__tech__input_4" type="checkbox" name = "techs"/>
+				<label  class = "tech-filter__tech__label tech-filter__tech__label_4" for="4tech">Имитация</br>клеенного бруса</label>
+				<input  id="5tech" class = "tech-filter__tech__input tech-filter__tech__input_5" type="checkbox" name = "techs"/>
+				<label  class = "tech-filter__tech__label tech-filter__tech__label_5" for="5tech">Кленный брус</label>
+				
+			</div>
+			<div class = "area">
+				<span class = "tech-filter-title">Жилая площадь</span>
+				<input type="text" id="amount-from" >
+				<span>-</span>
+				<input type="text" id="amount-to" >
+				<span>м<sup>2</sup></span>
+				<div id="slider-range"></div>
+				
+				<input  id="balkon" class = "area__balkon__input" type="checkbox" checked />
+				<label for="balkon" class = "area__balkon__label">Балкон</label>
+				
+				<input  id="garag"class = "area__garag__input" type="checkbox"/>
+				<label for="garag" class = "area__garag__label">Гараж</label>
+				
+				<input  id="terrasa" class = "area__terrasa__input" type="checkbox"/>
+				<label for="terrasa" class = "area__terrasa__label">Терраса</label>
+			</div>
+			<div class = "floors">
+				<span class = "tech-filter-title">Этажность</span>
+				<input  id = "1fl" type="checkbox" class = "floors__input floors__input_1fl" name = "floors" checked />
+				<label  for="1fl" class = "floors__label floors__label_1fl">Одноэтажные</label>
+				<input  id="2fl" type="checkbox" class = "floors__input floors__input_2fl" name = "floors"/>
+				<label  for="2fl" class = "floors__label floors__label_2fl">Двухэтажные</label>
+				<input  id="3fl" type="checkbox" class = "floors__input floors__input_3fl" name = "floors"/>
+				<label  for="3fl" class = "floors__label floors__label_3fl">Трехэтажные</label>
+			</div>
+			
+			<div class = "find-project-button">
+					<a href = "#"><span>Подобрать </br>проект</span></a>
+			</div>
+			<div style = "clear: both;"></div>
+			
+			<div class = "projects">
+				<h3 class = "projects-title">Найдено 99 проектов</h3>
+				<div class = "project">
+					<a href = "#"><span class = "project-button"><span>Подробнее </br> о проекте</span></span></a>
+					<img src="f/i/house1.jpg" alt="">
+					<div class = "project-info">
+						<span class = "project-title">Афалина</span>
+						<p>	Общая площадь: <strong>264</strong> м2 </br>
+						1-ый этаж: <strong>143</strong> м2 </br>
+						2-ый этаж: <strong>104 </strong>м2</p>
+						<p>	Площадь застройки: <strong>264 </strong>м2 </br>
+						Этажи: <strong>2</strong></p>
+						<span class = "project-button">Подробнее </br> о проекте</span>
+					</div>
+					
+				</div>
+				
+				<div class = "project hit">
+					<a href = "#"><span class = "project-button"><span>Подробнее </br> о проекте</span></span></a>
+					<img src="f/i/house2.jpg" alt="">
+					<div class = "project-info">
+						<span class = "project-title">Бриг <span> - Хит продаж!</span></span>
+						<p>	Общая площадь: <strong>264</strong> м2 </br>
+						1-ый этаж: <strong>143</strong> м2 </br>
+						2-ый этаж: <strong>104 </strong>м2</p>
+						<p>	Площадь застройки: <strong>264 </strong>м2 </br>
+						Этажи: <strong>2</strong></p>
+						<span class = "project-button">Подробнее </br> о проекте</span>
+					</div>
+				</div>	
+
+				<div class = "project">
+					<a href = "#"><span class = "project-button"><span>Подробнее </br> о проекте</span></span></a>
+					<img src="f/i/house3.jpg" alt="">
+					<div class = "project-info">
+						<span class = "project-title">Балчуг</span>
+						<p>	Общая площадь: <strong>264</strong> м2 </br>
+						1-ый этаж: <strong>143</strong> м2 </br>
+						2-ый этаж: <strong>104 </strong>м2</p>
+						<p>	Площадь застройки: <strong>264 </strong>м2 </br>
+						Этажи: <strong>2</strong></p>
+						<span class = "project-button">Подробнее </br> о проекте</span>
+					</div>
+				</div>
+				
+				<div class = "project">
+					<a href = "#"><span class = "project-button"><span>Подробнее </br> о проекте</span></span></a>
+					<img src="f/i/house4.jpg" alt="">
+					<div class = "project-info">
+						<span class = "project-title">Лиман</span>
+						<p>	Общая площадь: <strong>264</strong> м2 </br>
+						1-ый этаж: <strong>143</strong> м2 </br>
+						2-ый этаж: <strong>104 </strong>м2</p>
+						<p>	Площадь застройки: <strong>264 </strong>м2 </br>
+						Этажи: <strong>2</strong></p>
+						<span class = "project-button">Подробнее </br> о проекте</span>
+					</div>
+				</div>
+				
+				<div class = "make-order-block">	
+					<img src="f/i/make-order.png" alt="">
+					<p><a href = "#order" class = "modal-inline">Закажите</a>
+					свой </br> индивидуальный проект</br> дома
+					</p>
+				</div>
+				
+				<div class = "project">
+					<a href = "#"><span class = "project-button"><span>Подробнее </br> о проекте</span></span></a>
+					<img src="f/i/house5.jpg" alt="">
+					<div class = "project-info">
+						<span class = "project-title">Бриг</span>
+						<p>	Общая площадь: <strong>264</strong> м2 </br>
+						1-ый этаж: <strong>143</strong> м2 </br>
+						2-ый этаж: <strong>104 </strong>м2</p>
+						<p>	Площадь застройки: <strong>264 </strong>м2 </br>
+						Этажи: <strong>2</strong></p>
+						<span class = "project-button">Подробнее </br> о проекте</span>
+					</div>
+				</div>
+				
+				<div class = "project">
+					<a href = "#"><span class = "project-button"><span>Подробнее </br> о проекте</span></span></a>
+					<img src="f/i/house6.jpg" alt="">
+					<div class = "project-info">
+						<span class = "project-title">Балчуг</span>
+						<p>	Общая площадь: <strong>264</strong> м2 </br>
+						1-ый этаж: <strong>143</strong> м2 </br>
+						2-ый этаж: <strong>104 </strong>м2</p>
+						<p>	Площадь застройки: <strong>264 </strong>м2 </br>
+						Этажи: <strong>2</strong></p>
+						<span class = "project-button">Подробнее </br> о проекте</span>
+					</div>
+				</div>
+				
+				<div class = "project">
+					<a href = "#"><span class = "project-button"><span>Подробнее </br> о проекте</span></span></a>
+					<img src="f/i/house7.jpg" alt="">
+					<div class = "project-info">
+						<span class = "project-title">Ламанш</span>
+						<p>	Общая площадь: <strong>264</strong> м2 </br>
+						1-ый этаж: <strong>143</strong> м2 </br>
+						2-ый этаж: <strong>104 </strong>м2</p>
+						<p>	Площадь застройки: <strong>264 </strong>м2 </br>
+						Этажи: <strong>2</strong></p>
+						<span class = "project-button">Подробнее </br> о проекте</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class = "paginator">
+				<ul>
+					<li><a href = "#">1</a></li>
+					<li><a href = "#">2</a></li>
+					<li><a href = "#">3</a></li>
+					<li><a href = "#">4</a></li>
+					<li><a href = "#">5</a></li>
+					<li><a href = "#">6</a></li>
+					<li><a href = "#">7</a></li>
+					<li><a href = "#">8</a></li>
+					<li><a href = "#">9</a></li>
+					<li><a href = "#">10</a></li>
+					<li><a href = "#">11</a></li>
+					<li><a href = "#">12</a></li>
+					<li><a href = "#">13</a></li>
+					<li><a href = "#">14</a></li>
+					<li><a href = "#">15</a></li>
+					<li><a href = "#">...</a></li>
+				</ul>
+			</div>
+			
+		</div> 
+		
+    <div class="b-footer">
+		<div class="b-developer">Разработка сайта — <a href="http://www.inteo-s.ru" rel="external">Интео</a>
+		</div>
+        &copy; 2014 Nord Home
+    </div>
+</div>
+</div>
+<div class="b-extra-forms">
+<script>
+$(function(){
+	var callbackform = $("#callbackform");
+	$("#callbackPhone").validate({
+		expression: "if (VAL && VAL!=$('#callbackPhone').attr('placeholder')) return true; else return false;",
+		message: "Укажите ваш телефон"
+	});
+	callbackform.validated(function(){
+		callbackform.find('input[type="submit"]').button('loading');
+		var parentContainer = callbackform.closest('.b-form__holder'),
+		autoHeight = parentContainer.height(),
+		curHeight = parentContainer.height(),
+		actionUrl = callbackform.attr('action');	
+		$.post(actionUrl, callbackform.serialize())
+		.done(function(data) {
+			callbackform[0].reset();
+			callbackform.find('input[type="submit"]').removeAttr('disabled').button('reset');
+			callbackform.hide();
+			parentContainer.html(data);
+			parentContainer.height(curHeight);
+			parentContainer.animate({height: autoHeight}, 100, function() {
+			parentContainer.css('height', 'auto');
+			$.fancybox.reposition();
+			});
+		});
+		//metrikaReach('callback');
+	});
+
+});
+</script>
+	<div id="callback" style="width:440px">
+			<div class="b-form b-form_popup">
+				<div class="b-form__title">Обратный звонок</div>
+				<div class="b-form__holder">
+				<form action="/send/" name="callbackform" method="post" id="callbackform">
+							<div class="form-group"><input type="text" name="person" class="form-control btn-block" id="callbackPerson" placeholder="Ваше имя"></div>
+							<div class="form-group"><input type="tel" name="phone" class="form-control btn-block" id="callbackPhone" placeholder="Телефон"></div>
+							<div class="form-group"><textarea name="message" class="form-control btn-block" id="callbackMessage" rows="4" placeholder="Тема, время звонка"></textarea></div>
+
+					<div class="inv"><input type="text" name="country" class="form-control" value=""></div>
+					<div class="b-form__submit"><input type="hidden" name="formtype" value="callback"><input class="btn btn-light" type="submit" name="submit" value="Отправить" data-loading-text="Отправка..."></div>
+				</form>
+				</div>
+			</div>
+	</div>
+
+<script>
+$(function(){
+	var callbackform = $("#orderform");
+	$("#orderPhone").validate({
+		expression: "if (VAL && VAL!=$('#orderPhone').attr('placeholder')) return true; else return false;",
+		message: "Укажите ваш телефон"
+	});
+	orderform.validated(function(){
+		orderform.find('input[type="submit"]').button('loading');
+		var parentContainer = orderform.closest('.b-form__holder'),
+		autoHeight = parentContainer.height(),
+		curHeight = parentContainer.height(),
+		actionUrl = callbackform.attr('action');	
+		$.post(actionUrl, orderform.serialize())
+		.done(function(data) {
+			orderform[0].reset();
+			orderform.find('input[type="submit"]').removeAttr('disabled').button('reset');
+			orderform.hide();
+			parentContainer.html(data);
+			parentContainer.height(curHeight);
+			parentContainer.animate({height: autoHeight}, 100, function() {
+			parentContainer.css('height', 'auto');
+			$.fancybox.reposition();
+			});
+		});
+		//metrikaReach('callback');
+	});
+
+});
+</script>
+	<div id="order" style="width:440px">
+			<div class="b-form b-form_popup">
+				<div class="b-form__title b-form__title_decorated">Заявка на расчет</div>
+				<div class="b-form__holder">
+				<form action="/send/" name="orderform" method="post" id="orderform">
+							<div class="form-group"><input type="text" name="person" class="form-control btn-block" id="orderPerson" placeholder="Ваше имя"></div>
+							<div class="form-group"><input type="tel" name="phone" class="form-control btn-block" id="orderPhone" placeholder="Телефон"></div>
+							<div class="form-group"><textarea name="message" class="form-control btn-block" id="orderMessage" rows="4" placeholder="Описание объекта"></textarea></div>
+
+					<div class="inv"><input type="text" name="country" class="form-control" value=""></div>
+					<div class="b-form__submit"><input type="hidden" name="formtype" value="order"><input class="btn btn-light" type="submit" name="submit" value="Отправить" data-loading-text="Отправка..."></div>
+				</form>
+				</div>
+			</div>
+	</div>
+
+
+</div>
+</body>
+
+</html>

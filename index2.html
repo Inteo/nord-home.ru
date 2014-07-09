@@ -1,0 +1,901 @@
+<!doctype html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Nord Home</title>
+  <meta name="viewport" content="width=1010">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="f/css/main.css">
+  <!--[if lte IE 9]><link rel="stylesheet" href="f/css/ie.css"><![endif]-->
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,300,700,300italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="f/fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
+  <link rel="shortcut icon" href="favicon.ico">
+  <script src="f/js/jquery-1.10.2.min.js"></script>
+  <script src="f/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+  <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script src="f/js/jquery.touchSwipe.min.js"></script>
+  <script src="f/js/jquery.transit.min.js"></script>
+  <script src="f/js/common.js"></script>
+  <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+
+<body>
+  <div class="b-header">
+    <div class="b-container">
+      <div class="b-header__wrap">
+        <div class="b-header__logo">
+          <a href="/">
+            <img src="f/i/logo.png" alt="">
+          </a>
+        </div>
+        <div class="b-header__content">
+          <div class="b-header__company">
+            <ul>
+              <li><a href="#">О компании</a>
+              </li>
+              <li><a href="#">Отзывы</a>
+              </li>
+              <li><a href="#">Выполненные работы</a>
+              </li>
+              <li><a href="#">База знаний</a>
+              </li>
+            </ul>
+          </div>
+          <div class="b-header__contacts">
+            <div class="b-header__phone">
+              <a href="#callback" class="modal-inline iconize-phone" title="Обратный звонок">
+                <span class="b-header__phonecode">(4852) </span>68-07-02</a>
+            </div>
+            <a href="#order" class="b-header__order modal-inline">Заявка на расчет</a>
+          </div>
+          <div class="b-header__menu">
+            <ul>
+              <li><a href="#">Проекты</a>
+              </li>
+              <li><a href="#">Фундамент</a>
+              </li>
+              <li><a href="#">Дома</a>
+              </li>
+              <li><a href="#">Бани</a>
+              </li>
+              <li><a href="#">Беседки</a>
+              </li>
+              <li><a href="#">Цены</a>
+              </li>
+              <li><a href="#">Контакты</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+$(function() {
+  $('#b-slider__holder ul').carouFredSel({
+    width: '100%',
+    items: 3,
+    pagination: ".b-slider__pager",
+    scroll: {
+      items: 1,
+      duration: 500,
+      timeoutDuration: 5000,
+      easing: "quadratic",
+      pauseOnHover: true,
+      onBefore: function( data ) {
+        $('#b-slider__holder li').removeClass('current');
+        data.items.old.eq(0).find('.b-slider__mask').stop().animate({
+          'opacity': 0.7
+        }, data.scroll.duration);
+        data.items.visible.eq(0).addClass('current').find('.b-slider__mask').stop().animate({
+          'opacity': 0
+        }, data.scroll.duration);
+		data.items.visible.eq(0).addClass('current').next().find('.b-slider__mask').stop().animate({
+          'opacity': 0
+        }, data.scroll.duration);
+    
+      }
+    },
+    next: '.b-slider__next',
+    onCreate: function( data ) {
+      data.items.eq(0).addClass('current').find('.b-slider__mask').css('opacity',0);
+	   data.items.eq(0).addClass('current').next().find('.b-slider__mask').css('opacity',0);
+   
+    }
+
+  });
+  $('#b-slider__holder2 ul').children().click(function(event) {
+  	event.stopPropagation();
+    $('#b-slider__holder2 ul').trigger( 'slideTo', [this] );
+  });
+  /*
+  $(".b-slider__holder li").hover(
+      function () {
+        if ($(this).hasClass('current')) {return false} else {
+          $(this).find('.b-slider__mask').stop().animate({
+          'opacity': 0.5
+        }, 100);
+        }
+
+      }, 
+      function () {
+        if ($(this).hasClass('current')) {return false} else {
+          $(this).find('.b-slider__mask').stop().animate({
+          'opacity': 0.7
+        }, 100);
+        }
+      }
+);*/
+});
+</script>
+<script> 
+  
+  $(function() {
+  $('#b-slider__holder2 ul').carouFredSel({
+    width: '100%',
+    items: 5,
+    pagination: ".b-slider__pager2",
+    scroll: {
+      items: 1,
+      duration: 500,
+      timeoutDuration: 5000,
+      easing: "quadratic",
+      pauseOnHover: true,
+      onBefore: function( data ) {
+        $('#b-slider__holder2 li').removeClass('current');
+        data.items.old.eq(0).find('.b-slider__mask2').stop().animate({
+          'opacity': 0.7
+        }, data.scroll.duration);
+		 data.items.old.eq(0).next().find('.b-slider__mask2').stop().animate({
+          'opacity': 0.7
+        }, data.scroll.duration);
+				
+		 data.items.old.eq(0).next().next().find('.b-slider__mask2').stop().animate({
+          'opacity': 0.7
+        }, data.scroll.duration);
+		
+        data.items.visible.eq(0).addClass('current').find('.b-slider__mask2').stop().animate({
+          'opacity': 0
+        }, data.scroll.duration);
+		data.items.visible.eq(0).addClass('current').next().find('.b-slider__mask2').stop().animate({
+          'opacity': 0
+        }, data.scroll.duration);
+			data.items.visible.eq(0).addClass('current').next().next().find('.b-slider__mask2').stop().animate({
+          'opacity': 0
+        }, data.scroll.duration);
+    
+      }
+    },
+    next: '.b-slider__next2',
+    onCreate: function( data ) {
+      data.items.eq(0).addClass('current').find('.b-slider__mask2').css('opacity',0);
+	   data.items.eq(0).addClass('current').next().find('.b-slider__mask2').css('opacity',0);
+	    data.items.eq(0).addClass('current').next().next().find('.b-slider__mask2').css('opacity',0);
+   
+    }
+
+  });
+  $('#b-slider__holder2 ul').children().click(function(event) {
+  	event.stopPropagation();
+    $('#b-slider__holder2 ul').trigger( 'slideTo', [this] );
+  });
+  /*
+  $(".b-slider__holder li").hover(
+      function () {
+        if ($(this).hasClass('current')) {return false} else {
+          $(this).find('.b-slider__mask').stop().animate({
+          'opacity': 0.5
+        }, 100);
+        }
+
+      }, 
+      function () {
+        if ($(this).hasClass('current')) {return false} else {
+          $(this).find('.b-slider__mask').stop().animate({
+          'opacity': 0.7
+        }, 100);
+        }
+      }
+);*/
+});
+</script>
+
+<script> 
+  
+  $(function() {
+  $('#b-slider__holder3 ul').carouFredSel({
+    width: '100%',
+    items: 3,
+    pagination: ".b-slider__pager3",
+    scroll: {
+      items: 1,
+      duration: 500,
+      timeoutDuration: 5000,
+      easing: "quadratic",
+      pauseOnHover: true,
+      onBefore: function( data ) {
+        $('#b-slider__holder3 li').removeClass('current');
+        data.items.old.eq(0).find('.b-slider__mask3').stop().animate({
+          'opacity': 0.7
+        }, data.scroll.duration);
+		 data.items.old.eq(0).next().find('.b-slider__mask3').stop().animate({
+          'opacity': 0.7
+        }, data.scroll.duration);
+				
+	
+		
+        data.items.visible.eq(0).addClass('current').find('.b-slider__mask3').stop().animate({
+          'opacity': 0
+        }, data.scroll.duration);
+		data.items.visible.eq(0).addClass('current').next().find('.b-slider__mask3').stop().animate({
+          'opacity': 0
+        }, data.scroll.duration);
+	
+    
+      }
+    },
+    next: '.b-slider__next3',
+    onCreate: function( data ) {
+      data.items.eq(0).addClass('current').find('.b-slider__mask3').css('opacity',0);
+	   data.items.eq(0).addClass('current').next().find('.b-slider__mask3').css('opacity',0);
+	   
+   
+    }
+
+  });
+  $('#b-slider__holder3 ul').children().click(function(event) {
+  	event.stopPropagation();
+    $('#b-slider__holder3 ul').trigger( 'slideTo', [this] );
+  });
+  /*
+  $(".b-slider__holder li").hover(
+      function () {
+        if ($(this).hasClass('current')) {return false} else {
+          $(this).find('.b-slider__mask').stop().animate({
+          'opacity': 0.5
+        }, 100);
+        }
+
+      }, 
+      function () {
+        if ($(this).hasClass('current')) {return false} else {
+          $(this).find('.b-slider__mask').stop().animate({
+          'opacity': 0.7
+        }, 100);
+        }
+      }
+);*/
+});
+</script>
+
+<script>
+	
+	function Slide()
+	{
+		if($('#reason-button').hasClass("b-reason-button"))
+		{
+			$('.b-main-block').animate(
+			{
+				marginRight:'470px',
+				opacity: '0.5'
+			});
+			
+			$('.b-reasons').animate(
+			{
+				marginLeft:'-440px',
+				opacity: '1',
+				height: '560px'
+			});
+			
+			$('.b-main-block-wrap').css('height', '720px');
+			$('#reason-button').removeClass('b-reason-button').addClass('b-reason-button-active');
+		}
+		else if($('#reason-button').hasClass("b-reason-button-active"))
+		{
+			$('.b-main-block').animate(
+			{
+				marginRight:'-440px',
+				opacity: '1'
+			});
+			
+			$('.b-reasons').animate(
+			{
+				marginLeft:'470px',
+				opacity: '0.5',
+				height: '480px'
+			});
+		
+			$('.b-main-block-wrap').css('height', '550px');
+			$('#reason-button').removeClass('b-reason-button-active').addClass('b-reason-button');
+		}
+		
+	}
+	
+	function SlideDown(n)
+	{
+		if(n == 1)
+		{
+			if($('#constr').hasClass("closed"))
+			{
+				$('#constr').animate(
+				{
+					height: '100%'
+				});
+				$('#slide-down-mask').animate(
+				{
+					opacity: '0'
+				});
+				$('#constr').removeClass('closed');
+			}
+			else
+			{
+				$('#constr').animate(
+				{
+					height: '970px'
+				});
+				
+				$('#slide-down-mask').animate(
+				{
+					opacity: '1'
+				});
+				$('#constr').addClass('closed');
+			}
+		}
+		else if(n == 2)
+		{
+			if($('#tech').hasClass("closed"))
+			{
+				$('#tech').animate(
+				{
+					height: '100%'
+				});
+				$('#slide-down-mask2').animate(
+				{
+					opacity: '0'
+				});
+				$('#tech').removeClass('closed');
+			}
+			else
+			{
+				$('#tech').animate(
+				{
+					height: '850px'
+				});
+				
+				$('#slide-down-mask2').animate(
+				{
+					opacity: '1'
+				});
+				$('#tech').addClass('closed');
+			}
+		}
+		else if(n == 3)
+		{
+			if($('#slide-down3-block').hasClass("closed"))
+			{
+				$('#slide-down3-block').animate(
+				{
+					height: '200px'
+				});
+				
+				$('#slide-down3-block').removeClass('closed');
+			}
+			else
+			{
+				$('#slide-down3-block').animate(
+				{
+					height: '0px'
+				});
+			
+				$('#slide-down3-block').addClass('closed');
+			}
+		}
+	}
+</script>
+	<div class = "b-main-block-wrap">
+		<div class = "title-wrap">
+			<h2 class = "main-title">дома </br>из клеенного бруса</h2>
+	
+				<a id="reason-button" class = "b-reason-button" onClick="Slide()" href = "#">5 <span> причин «за»</span></a>
+			
+		</div>
+		<div class = "b-main-block active">
+			<img class = "b-main-block-pict" src="f/i/brus.png" alt="">
+			<p class = "b-main-block-text">
+				<strong>Клееный брус</strong> – это высокотехнологичный материал, который производят, склеивая деревянные ламели, после чего заготовки профилируют при помощи высокоточного оборудования. Для его изготовления берется только лучшая древесина, частью сырья приходится пожертвовать. Соответственно, возрастает и цена на клееный брус. Однако стоимость дома из клееного бруса оказывается вполне обоснованной, когда его владелец оценит все достоинства материала.
+			</p>
+			<a class = "b-main-block-demand modal-inline" href = "#order">Отправить заявку</a>
+			<a class = "b-main-block-quest" href = "#">Задать вопрос</a>
+		</div>
+		<div class = "b-reasons">
+			<div class = "b-reason">
+				<span></span>
+				<h4>Долговечность</h4>
+				<p>Влажность готового клееного бруса не превышает 12%, поэтому он практически не растрескивается и не деформируется.</p>
+			</div>
+			<div class = "b-reason">
+				<span></span>
+				<h4>красота</h4>
+				<p>Домам из бруса не требуется ни внутренняя, ни наружная отделка, ведь они сами по себе очень красивы.</p>
+			</div>
+			<div class = "b-reason">
+				<span></span>
+				<h4>Комфорт</h4>
+				<p>Благодаря низкой теплопроводности и естественной регуляции влажности (брус «дышит») в доме всегда будет свежий воздух и комфортная температура.</p>
+			</div>
+			<div class = "b-reason">
+				<span></span>
+				<h4>безопасность</h4>
+				<p>На производстве древесину обрабатывают антипиренами и антисептиками. Клеевая система, используемая в строительстве, имеет экологический сертификат соответствия.</p>
+			</div>
+			<div class = "b-reason">
+				<span></span>
+				<h4>легкость конструкции</h4>
+				<p>При строительстве дома из клееного бруса нет необходимости возводить усиленный фундамен,  соответственно, уменьшается и время строительства.</p>
+			</div>
+			
+			<a id = "close-button" class = "fancybox-item fancybox-close" href="#" onClick="Slide()"></a>
+			
+			
+		</div>
+		
+		
+		<div style = "clear: both;"></div>
+	</div>
+	
+	<div class = "b-projects">
+		<h4>>50 проектов домов </br>из клеенного бруса</h4>
+		<a  href = "#">Все проекты <span>&#8594</span></a>
+	</div>
+	
+	
+	
+	<div class="b-slider">
+    <div class="b-slider__wrap">
+		<div id="b-slider__holder">
+			<ul>
+			<li data-title="1">
+				<img src="f/i/slide1-1.jpg" alt="">
+				<span class="b-slider__mask"></span>
+				<a href = "#" class = "slide-text">
+					<div></div>
+					<span class = "slide-text-title">Балчуг</span>
+						<p>	Общая площадь: <strong>264</strong> м<sup>2</sup> </br>
+						1-ый этаж: <strong>143</strong> м<sup>2</sup> </br>
+						2-ый этаж: <strong>104 </strong>м<sup>2</sup></p>
+						<p>	Площадь застройки: <strong>264 </strong>м<sup>2</sup> </br>
+						Этажи: <strong>2</strong></p>
+				</a>
+			</li>
+			<li data-title="2">
+				<img src="f/i/slide1-2.jpg" alt="">
+				<span class="b-slider__mask"></span>
+				<a href = "#" class = "slide-text">
+					<div></div>
+					<span class = "slide-text-title">Лиман</span>
+					<p>	Общая площадь: <strong>264</strong> м<sup>2</sup> </br>
+						1-ый этаж: <strong>143</strong> м<sup>2</sup> </br>
+						2-ый этаж: <strong>104 </strong>м<sup>2</sup></p>
+					<p>	Площадь застройки: <strong>264 </strong>м<sup>2</sup> </br>
+						Этажи: <strong>2</strong></p>
+			  </a>
+			</li>
+			<li data-title="3">
+				<img src="f/i/slide1-3.jpg" alt="">
+				<span class="b-slider__mask"></span>
+				<a href = "#" class = "slide-text">
+					<div></div>
+					<span class = "slide-text-title">Бриг</span>
+					<p>	Общая площадь: <strong>264</strong> м<sup>2</sup> </br>
+						1-ый этаж: <strong>143</strong> м<sup>2</sup> </br>
+						2-ый этаж: <strong>104 </strong>м<sup>2</sup></p>
+					<p>	Площадь застройки: <strong>264 </strong>м<sup>2</sup> </br>
+						Этажи: <strong>2</strong></p>
+				</a>
+			</li>
+			<li data-title="4">
+				<img src="f/i/slide1-2.jpg" alt="">
+				<span class="b-slider__mask"></span>
+				<a href = "#" class = "slide-text">
+					<div></div>
+					<span class = "slide-text-title">Лиман</span>
+					<p>	Общая площадь: <strong>264</strong> м<sup>2</sup> </br>
+						1-ый этаж: <strong>143</strong> м<sup>2</sup> </br>
+						2-ый этаж: <strong>104 </strong>м<sup>2</sup></p>
+					<p>	Площадь застройки: <strong>264 </strong>м<sup>2</sup> </br>
+						Этажи: <strong>2</strong></p>
+						
+				</a>
+			</li>
+        </ul>
+
+		</div>
+		<div class="b-slider__next"></div>
+    </div>
+	</div>
+
+	<div id = "constr" class = "b-const-back closed">
+		<div class = "b-constr-wrap">
+			<div class = "b-constr">
+				<h3>Технология строительства </br>
+					домов из клеенного бруса</h3>
+				<p>Компания «Nord House» (официальный дилер компании «Нархозстрой» в Ярославской области) реализует клееный брус в Ярославле, а также осуществляет строительство домов любого назначения и любой сложности из этого материала. Произведенный нашей компанией материал по качеству не уступает любым европейским аналогам, при этом большие производственные мощности позволяют нам устанавливать приемлемые для наших клиентов цены на дома из клееного бруса. </p>
+				<div class = "b-constr-pict">
+					<span>Промежуточный  этап </br> строительства</span>
+					<img src="f/i/pict1.jpg" alt="">
+				</div>
+				
+				<p>Строительство дома из клееного бруса в Ярославле осуществляется в несколько этапов. На этапе планирования мы разрабатываем проект дома (его архитектуру и дизайн) в соответствии с вашими пожеланиями. Здесь может быть два варианта:</p>
+				<a href = "slide-down1-Anchor" name="slide-down1-Anchor" id = "slide-down1-Anchor"></a>
+				<span class = "point">Вы выбираете <strong>один из типовых проектов </strong>и при необходимости вносите изменения (главное преимущество этого варианта – экономия времени и расходов на строительство).</span>
+				<span class = "point" style = "margin-bottom: 50px;">Мы разрабатываем для вас <strong>новый проект с нуля</strong>.</span>
+				
+				<p>
+				Затем при помощи специальных компьютерных программ производятся необходимые расчеты, на основании которых на заводе при помощи высокоточных линий оборудования изготавливают сам брус. Готовые детали комплектуются и упаковываются при помощи специального полиэтилена в определенном порядке: это сделает проще дальнейший процесс сборки.</p>
+				<div class = "b-constr-pict" >
+					<span>Процесс изготовления </br> клееноного бруса</span>
+					<img src="f/i/pict2.jpg" alt="" style = "margin-bottom: 20px;">
+				</div>
+				<p>Как правило, на стройплощадку привезут два комплекта материала:</p>
+				<span class = "point">В первую очередь поставляют материалы, необходимые для строительства основания и стен будущего дома.</span>
+				<span class = "point">Через некоторое время привезут материалы для внутренней отделки: двери, лестницы и т.п.</span>
+				<p>Материалы доставляют в два этапа, чтобы их (случайно или умышленно) не повредили в процессе возведения дома.</p>
+				<p>Кроме того, все комплекты обычно сопровождаются инструкцией, где подробно описываются все этапы строительства и уделяется внимание особо сложным участкам.</p>
+				<div class = "b-ref">
+					<img src="f/i/pict3.jpg" alt="">
+					<p>На сегодняшний день у клееного бруса нет аналогов по долговечности, технологичности и соответствию экологическим требованиям!</p>
+				</div>
+				<div style = "clear: both;"></div>
+				<h3>Строительство домов из клееного бруса:</br> основные преимущества</h3>
+				<h4>Надежность</h4>
+				<p>Минимальная влажность цельного бревна – 30%. Когда оно высыхает, в нем образуются трещины. Влажность бруса значительно ниже – всего лишь 10-12%, поэтому трещины в материале не появляются. Отсутствие внутреннего напряжения материала позволяет ему в точности сохранять геометрические параметры. Деревянные дома из клееного бруса устойчивы, прочны, практически не деформируются, материал не подвергается усадке, скручиванию или изгибанию.</p>
+				<h4>быстрое возведение</h4>
+				<p>Быстрое возведение: доставленный на площадку материал, как правило, полностью готов к работе, поэтому и возвести дом вы сможете быстрее, чем при использовании, например, цельного дерева.</p>
+				<h4>доступная цена</h4>
+				<p>Цена дома из клееного бруса достаточно выгодная. Кроме того, финские технологии строительства позволят сэкономить и на теплоснабжении дома в процессе обслуживания: затраты снизятся в несколько раз. Мы можем с уверенностью сказать: то, что дома из клееного бруса недорого обходятся их владельцам – это не рекламный ход, а реальность!</p>
+				<h4>внутренняя отделка</h4>
+				<p>Еще один фактор экономии – отсутствие необходимости отделки дома (и внутри, и снаружи). В доме можно жить сразу после постройки!</p>
+				<h4>Натуральный материалы</h4>
+				<p>Натуральные материалы обеспечивают благоприятный микроклимат в доме.</p>
+				<h4>Индивидуальное проектирование</h4>
+				<p>Индивидуальное проектирование: клееный брус позволяет воплощать в жизнь любые пожелания заказчика и идеи проектеировщика.</p>
+				<h4>Технологичное производство</h4>
+				<p>Все элементы дома, даже стропила и балки, производятся на заводе, на специальном оборудовании, обеспечивающем высокую точность параметров и отличное качество обработки поверхности.</p>
+				
+			</div>
+		</div>
+		<div class = "slide-down-mask" id = "slide-down-mask"></div>
+		<a href = "#slide-down1-Anchor" onClick="SlideDown(1);" class = "slide-down" id = "slide-down1"></a>
+		<div style = "clear: both;"></div>
+		
+	</div>
+	
+	<div style = "clear: both;"></div>
+	
+	<div id = "tech" class = "b-const-back closed">
+		<div class = "b-constr-wrap">
+			<div class = "b-constr">
+				<h3>Технология производства </br>клеенного бруса</h3>
+				<p>Для изготовления клееного бруса мы используем высококачественную древесину отечественных хвойных пород. Именно это позволяет достигать высокой прочности и других преимуществ бруса. Доски из нее используются для заготовки ламелей – тонких пластин, которые хорошо просушиваются (в результате их влажность составляет 8±2%). Затем ламели обрабатывают на станке, пока их поверхность не станет ровной.</p>
+			</div>
+			<div style = "clear: both;"></div>
+			<div class = "play">
+				
+				<a href = "#"><img src="f/i/play.jpg" alt=""><span>Видео </br>о производстве</span></a>
+			</div>
+			<div class="b-slider2">
+				<div class="b-slider__wrap2">
+					<div id="b-slider__holder2">
+						<ul>
+						<li data-title="1">
+							<img src="f/i/slide2-1.jpg" alt="">
+							<span class="b-slider__mask2"></span>
+							
+						</li>
+						<li data-title="2">
+							<img src="f/i/slide2-2.jpg" alt="">
+							<span class="b-slider__mask2"></span>
+						
+						</li>
+						<li data-title="3">
+							<img src="f/i/slide2-3.jpg" alt="">
+							<span class="b-slider__mask2"></span>
+							
+						</li>
+						<li data-title="4">
+							<img src="f/i/slide2-2.jpg" alt="">
+							<span class="b-slider__mask2"></span>
+							
+						</li>
+						<li data-title="5">
+							<img src="f/i/slide2-1.jpg" alt="">
+							<span class="b-slider__mask2"></span>
+							
+						</li>
+						<li data-title="5">
+							<img src="f/i/slide2-3.jpg" alt="">
+							<span class="b-slider__mask2"></span>
+							
+						</li>
+					</ul>
+
+					</div>
+					<div class="b-slider__next2"></div>
+				</div>
+			</div>
+			<div class = "b-constr">
+				
+				<p>Обработанные ламели складывают так, чтобы их волокна «смотрели» в противоположном направлении. Именно такой принцип защитит будущие стены от деформации. После этого при помощи пресса их соединяют в один брус.</p>
+				<a href = "slide-down2-Anchor" name="slide-down2-Anchor" id = "slide-down2-Anchor"></a>
+				<p style = "margin: 30px 0"><strong >Древесина лучших отечественных пород и современные экологически безопасные клеевые системы – две составляющие успеха домов из клееного бруса!</strong></p>
+				<p>Мы производим клееный брус при помощи техники Hundegger, а слои скрепляем клеем Касколит (его производит фирма Azko Nobel в Швеции). Правильная клеевая основа – один из факторов, напрямую влияющих на долговечность, прочность и экологичность будущей постройки из бруса, поэтому мы используем клеевые системы, которые отвечают самым жестким стандартам.</p>
+				<div class = "b-constr-pict" style = "margin-top: 30px;">
+					<span>Техника sHundegger для</br>производства </br> клеенного бруса</span>
+					<img src="f/i/pict4.jpg" alt="">
+				</div>
+				<a href = "slide-down3-Anchor" name="slide-down3-Anchor" id = "slide-down3-Anchor"></a>
+				<p>Затем брус проходит еще три этапа подготовки: профилирование, вырезание конструктивных элементов (отверстий для нагелей, венцовых чашек) и торцевание.</p>
+				<p><strong>Мы уделяем особое внимание качеству этих работ: ведь от них напрямую зависит, каким станет будущий дом!</strong></p>
+				
+				<div class = "systems" >
+					
+					<div class = "systems-title">
+						<a href = "#slide-down3-Anchor" name="slide-down3" id = "slide-down3" onClick="SlideDown(3);" class = "slide-down"></a>
+						<span>Клеевые системы</span>
+					</div>
+					<div id = "slide-down3-block" class = "closed"><p>Клеевые системы – это основа прочности и долговечности, а также экологической безопасности будущего дома. Поскольку здоровье наших клиентов и экология для нас на первом месте, мы делаем выбор в пользу одной из лучших клеевых систем на современном рынке - клеевой системы серии GripDuty™ производства компании Akzo Nobel.</p></div>
+				</div>
+
+			</div>
+		</div>
+		<div class = "slide-down-mask" id = "slide-down-mask2"></div>
+		<a href = "#slide-down2-Anchor" id = "slide-down2" name = "slide-down2" onClick="SlideDown(2);" class = "slide-down"></a>
+		<div style = "clear: both;"></div>
+		
+	</div>
+	
+	<div class = "b-projects bottom">
+		<h4>>20 реализованных проектов домов </br>из клеенного бруса</h4>
+		<a  href = "#">Все проекты <span>&#8594 </span> </a>
+	</div>
+	
+	
+	
+	<div class="b-slider3">
+    <div class="b-slider__wrap3">
+		<div id="b-slider__holder3">
+			<ul>
+			<li data-title="1">
+				<img src="f/i/slide-3.jpg" alt="">
+				<span class="b-slider__mask3"></span>
+				<a href = "#" class = "slide-text">
+					<div></div>
+					<span class = "slide-text-title">Дом для постоянного проживания 8х6 с верандой</span>
+					<p>Общая площадь: <strong>264</strong> м<sup>2</sup></br>
+					1-ый этаж: <strong>143</strong> м<sup>2</sup></br>
+					2-ый этаж: <strong>104 </strong> м<sup>2</sup></br>
+					Террасса: <strong>Есть </strong></p>
+					<p>
+					Площадь застройки:  <strong>264</strong> м<sup>2</sup></br>
+					Этажи: <strong>2</strong></br>
+					Материал: <strong>Клеенный  брус </strong></p>
+				</a
+			</li>
+			<li data-title="2">
+				<img src="f/i/slide-4.jpg" alt="">
+				<span class="b-slider__mask3"></span>
+				<a href = "#" class = "slide-text">
+					<div></div>
+					<span class = "slide-text-title">Дом для постоянного проживания 8х6 с верандой</span>
+					<p>Общая площадь: <strong>264</strong> м<sup>2</sup></br>
+					1-ый этаж: <strong>143</strong> м<sup>2</sup></br>
+					2-ый этаж: <strong>104 </strong> м<sup>2</sup></br>
+					Террасса: <strong>Есть </strong></p>
+					<p>
+					Площадь застройки:  <strong>264</strong> м<sup>2</sup></br>
+					Этажи: <strong>2</strong></br>
+					Материал: <strong>Клеенный  брус </strong></p>
+				</a>
+			</li>
+			<li data-title="3">
+				<img src="f/i/slide-3.jpg" alt="">
+				<span class="b-slider__mask3"></span>
+				<a href = "#" class = "slide-text">
+					<div></div>
+					<span class = "slide-text-title">Дом для постоянного проживания 8х6 с верандой</span>
+					<p>Общая площадь: <strong>264</strong> м<sup>2</sup></br>
+					1-ый этаж: <strong>143</strong> м<sup>2</sup></br>
+					2-ый этаж: <strong>104 </strong> м<sup>2</sup></br>
+					Террасса: <strong>Есть </strong></p>
+					<p>
+					Площадь застройки:  <strong>264</strong> м<sup>2</sup></br>
+					Этажи: <strong>2</strong></br>
+					Материал: <strong>Клеенный  брус </strong></p>
+				</a>
+			</li>
+			<li data-title="4">
+				<img src="f/i/slide-4.jpg" alt="">
+				<span class="b-slider__mask3"></span>
+				<a href = "#" class = "slide-text">
+					<div></div>
+					<span class = "slide-text-title">Дом для постоянного проживания 8х6 с верандой</span>
+					<p>Общая площадь: <strong>264</strong> м<sup>2</sup></br>
+					1-ый этаж: <strong>143</strong> м<sup>2</sup></br>
+					2-ый этаж: <strong>104 </strong> м<sup>2</sup></br>
+					Террасса: <strong>Есть </strong></p>
+					<p>
+					Площадь застройки:  <strong>264</strong> м<sup>2</sup></br>
+					Этажи: <strong>2</strong></br>
+					Материал: <strong>Клеенный  брус </strong></p>
+				</a>
+			</li>
+        </ul>
+
+		</div>
+		<div class="b-slider__next3"></div>
+    </div>
+	</div>
+	
+  <div class="b-content">
+    <div class="b-wrap">
+      <div class="clear">
+        <div class="b-block b-block_light">
+          <div class="b-block__wrap">
+            <p class="b-title">Наши технологии</p>
+          </div>
+        </div>
+        <div class="b-block b-block_cylinder">
+          <div class="b-direction">
+            <div class="b-direction__title">Дома из оцилиндрованного бревна</div>
+            <div class="b-direction__price">от <b>5000</b> <span class="rub">Р</span> за м&sup2;</div>
+            <div class="b-direction__hover"><img src="f/i/dir-1.jpg" alt=""><div class="b-direction__hover-mask"></div><div class="b-direction__cat"><p><a href="#" class="arr classic">Посмотреть проекты</a></p><p><a href="#" class="arr classic">О технологии строительства</a></p></div></div>
+          </div>
+        </div>
+        <div class="b-block b-block_profile">
+          <div class="b-direction">
+            <div class="b-direction__title">Дома из профилированного бруса</div>
+            <div class="b-direction__price">от <b>3000</b> <span class="rub">Р</span> за м&sup2;</div>
+            <div class="b-direction__hover"><img src="f/i/dir-1.jpg" alt=""><div class="b-direction__hover-mask"></div><div class="b-direction__cat"><p><a href="#" class="arr classic">Посмотреть проекты</a></p><p><a href="#" class="arr classic">О технологии строительства</a></p></div></div>
+          </div>
+        </div>
+        <div class="b-block b-block_glue">
+          <div class="b-direction">
+            <div class="b-direction__title">Дома из клееного бруса</div>
+            <div class="b-direction__price">от <b>7000</b> <span class="rub">Р</span> за м&sup2;</div>
+            <div class="b-direction__hover"><img src="f/i/dir-1.jpg" alt=""><div class="b-direction__hover-mask"></div><div class="b-direction__cat"><p><a href="#" class="arr classic">Посмотреть проекты</a></p><p><a href="#" class="arr classic">О технологии строительства</a></p></div></div>
+          </div>
+        </div>
+        <div class="b-block b-block_imitation">
+          <div class="b-direction">
+            <div class="b-direction__title">Дома из имитации клееного бруса</div>
+            <div class="b-direction__price">от <b>12000</b> <span class="rub">Р</span> за м&sup2;</div>
+            <div class="b-direction__hover"><img src="f/i/dir-1.jpg" alt=""><div class="b-direction__hover-mask"></div><div class="b-direction__cat"><p><a href="#" class="arr classic">Посмотреть проекты</a></p><p><a href="#" class="arr classic">О технологии строительства</a></p></div></div>
+          </div>
+        </div>
+        <div class="b-block b-block_frame">
+          <div class="b-direction">
+            <div class="b-direction__title">Каркасные дома</div>
+            <div class="b-direction__price">от <b>7000</b> <span class="rub">Р</span> за м&sup2;</div>
+            <div class="b-direction__hover"><img src="f/i/dir-1.jpg" alt=""><div class="b-direction__hover-mask"></div><div class="b-direction__cat"><p><a href="#" class="arr classic">Посмотреть проекты</a></p><p><a href="#" class="arr classic">О технологии строительства</a></p></div></div>
+          </div>
+        </div>
+        <div class="b-block b-block_double">
+          <a href="#" class="full classic">
+            <img src="f/i/tech.jpg" alt="" class="back">
+            <span class="b-link"></span>
+            <span class="b-block__wrap">
+              <span class="b-title">Какую технологию выбрать?</span>
+            </span>
+          </a>
+        </div>
+      </div>
+      
+      <div class="b-footer">
+        <div class="b-developer">Разработка сайта — <a href="http://www.inteo-s.ru" rel="external">Интео</a>
+        </div>
+        &copy; 2014 Nord Home
+      </div>
+    </div>
+  </div>
+
+  <div class="b-extra-forms">
+<script>
+$(function(){
+	var callbackform = $("#callbackform");
+	$("#callbackPhone").validate({
+		expression: "if (VAL && VAL!=$('#callbackPhone').attr('placeholder')) return true; else return false;",
+		message: "Укажите ваш телефон"
+	});
+	callbackform.validated(function(){
+		callbackform.find('input[type="submit"]').button('loading');
+		var parentContainer = callbackform.closest('.b-form__holder'),
+		autoHeight = parentContainer.height(),
+		curHeight = parentContainer.height(),
+		actionUrl = callbackform.attr('action');	
+		$.post(actionUrl, callbackform.serialize())
+		.done(function(data) {
+			callbackform[0].reset();
+			callbackform.find('input[type="submit"]').removeAttr('disabled').button('reset');
+			callbackform.hide();
+			parentContainer.html(data);
+			parentContainer.height(curHeight);
+			parentContainer.animate({height: autoHeight}, 100, function() {
+			parentContainer.css('height', 'auto');
+			$.fancybox.reposition();
+			});
+		});
+		//metrikaReach('callback');
+	});
+
+});
+</script>
+	<div id="callback" style="width:440px">
+			<div class="b-form b-form_popup">
+				<div class="b-form__title">Обратный звонок</div>
+				<div class="b-form__holder">
+				<form action="/send/" name="callbackform" method="post" id="callbackform">
+							<div class="form-group"><input type="text" name="person" class="form-control btn-block" id="callbackPerson" placeholder="Ваше имя"></div>
+							<div class="form-group"><input type="tel" name="phone" class="form-control btn-block" id="callbackPhone" placeholder="Телефон"></div>
+							<div class="form-group"><textarea name="message" class="form-control btn-block" id="callbackMessage" rows="4" placeholder="Тема, время звонка"></textarea></div>
+
+					<div class="inv"><input type="text" name="country" class="form-control" value=""></div>
+					<div class="b-form__submit"><input type="hidden" name="formtype" value="callback"><input class="btn btn-light" type="submit" name="submit" value="Отправить" data-loading-text="Отправка..."></div>
+				</form>
+				</div>
+			</div>
+	</div>
+
+<script>
+$(function(){
+	var callbackform = $("#orderform");
+	$("#orderPhone").validate({
+		expression: "if (VAL && VAL!=$('#orderPhone').attr('placeholder')) return true; else return false;",
+		message: "Укажите ваш телефон"
+	});
+	orderform.validated(function(){
+		orderform.find('input[type="submit"]').button('loading');
+		var parentContainer = orderform.closest('.b-form__holder'),
+		autoHeight = parentContainer.height(),
+		curHeight = parentContainer.height(),
+		actionUrl = callbackform.attr('action');	
+		$.post(actionUrl, orderform.serialize())
+		.done(function(data) {
+			orderform[0].reset();
+			orderform.find('input[type="submit"]').removeAttr('disabled').button('reset');
+			orderform.hide();
+			parentContainer.html(data);
+			parentContainer.height(curHeight);
+			parentContainer.animate({height: autoHeight}, 100, function() {
+			parentContainer.css('height', 'auto');
+			$.fancybox.reposition();
+			});
+		});
+		//metrikaReach('callback');
+	});
+
+});
+</script>
+	<div id="order" style="width:440px">
+			<div class="b-form b-form_popup">
+				<div class="b-form__title b-form__title_decorated">Заявка на расчет</div>
+				<div class="b-form__holder">
+				<form action="/send/" name="orderform" method="post" id="orderform">
+							<div class="form-group"><input type="text" name="person" class="form-control btn-block" id="orderPerson" placeholder="Ваше имя"></div>
+							<div class="form-group"><input type="tel" name="phone" class="form-control btn-block" id="orderPhone" placeholder="Телефон"></div>
+							<div class="form-group"><textarea name="message" class="form-control btn-block" id="orderMessage" rows="4" placeholder="Описание объекта"></textarea></div>
+
+					<div class="inv"><input type="text" name="country" class="form-control" value=""></div>
+					<div class="b-form__submit"><input type="hidden" name="formtype" value="order"><input class="btn btn-light" type="submit" name="submit" value="Отправить" data-loading-text="Отправка..."></div>
+				</form>
+				</div>
+			</div>
+	</div>
+
+
+</div>
+</body>
+
+</html>

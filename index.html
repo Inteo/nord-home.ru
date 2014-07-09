@@ -1,0 +1,347 @@
+<!doctype html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Nord Home</title>
+  <meta name="viewport" content="width=1010">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="f/css/main.css">
+  <!--[if lte IE 9]><link rel="stylesheet" href="f/css/ie.css"><![endif]-->
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,300,700,300italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="f/fancybox/jquery.fancybox.css?v=2.1.5" media="screen">
+  <link rel="shortcut icon" href="favicon.ico">
+  <script src="f/js/jquery-1.10.2.min.js"></script>
+  <script src="f/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+  <script src="f/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script src="f/js/jquery.touchSwipe.min.js"></script>
+  <script src="f/js/jquery.transit.min.js"></script>
+  <script src="f/js/common.js"></script>
+  <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+
+<body>
+  <div class="b-header">
+    <div class="b-container">
+      <div class="b-header__wrap">
+        <div class="b-header__logo">
+          <a href="/">
+            <img src="f/i/logo.png" alt="">
+          </a>
+        </div>
+        <div class="b-header__content">
+          <div class="b-header__company">
+            <ul>
+              <li><a href="#">О компании</a>
+              </li>
+              <li><a href="#">Отзывы</a>
+              </li>
+              <li><a href="#">Выполненные работы</a>
+              </li>
+              <li><a href="#">База знаний</a>
+              </li>
+            </ul>
+          </div>
+          <div class="b-header__contacts">
+            <div class="b-header__phone">
+              <a href="#callback" class="modal-inline iconize-phone" title="Обратный звонок">
+                <span class="b-header__phonecode">(4852) </span>68-07-02</a>
+            </div>
+            <a href="#order" class="b-header__order modal-inline">Заявка на расчет</a>
+          </div>
+          <div class="b-header__menu">
+            <ul>
+              <li><a href="#">Проекты</a>
+              </li>
+              <li><a href="#">Фундамент</a>
+              </li>
+              <li><a href="#">Дома</a>
+              </li>
+              <li><a href="#">Бани</a>
+              </li>
+              <li><a href="#">Беседки</a>
+              </li>
+              <li><a href="#">Цены</a>
+              </li>
+              <li><a href="#">Контакты</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+$(function() {
+  $('#b-slider__holder0 ul').carouFredSel({
+    width: '100%',
+    items: 3,
+    pagination: ".b-slider__pager",
+    scroll: {
+      items: 1,
+      duration: 500,
+      timeoutDuration: 5000,
+      easing: "quadratic",
+      pauseOnHover: true,
+      onBefore: function( data ) {
+        $('#b-slider__holder0 li').removeClass('current');
+        data.items.old.eq(0).find('.b-slider__mask0').stop().animate({
+          'opacity': 0.7
+        }, data.scroll.duration);
+        data.items.visible.eq(0).addClass('current').find('.b-slider__mask0').stop().animate({
+          'opacity': 0
+        }, data.scroll.duration);
+        var atr = data.items.visible.eq(0).attr('data-title');
+        $('.b-slider__title-wrap.active').removeClass('active').addClass('was-active');
+        setTimeout(function() {
+          $('.b-slider__title-wrap.was-active').removeClass('was-active');
+        }, 500);
+        $('[data-item='+atr+']').addClass('active');
+
+      }
+    },
+    next: '.b-slider__next0',
+    onCreate: function( data ) {
+      data.items.eq(0).addClass('current').find('.b-slider__mask0').css('opacity',0);
+      $('.b-slider__title [data-item=1]').addClass('active');
+    }
+
+  });
+  $('#b-slider__holder0 ul').children().click(function(event) {
+  	event.stopPropagation();
+    $('#b-slider__holder0 ul').trigger( 'slideTo', [this] );
+  });
+ 
+});
+</script>
+  <div class="b-slider0">
+    <div class="b-slider__wrap0">
+      <div id="b-slider__holder0">
+        <ul>
+          <li data-title="1">
+              <img src="f/i/slide-1.jpg" alt="">
+              <span class="b-slider__mask0"></span>
+          </li>
+          <li data-title="2">
+              <img src="f/i/slide-2.jpg" alt="">
+              <span class="b-slider__mask0"></span>
+          </li>
+          <li data-title="3">
+              <img src="f/i/slide-1.jpg" alt="">
+              <span class="b-slider__mask0"></span>
+          </li>
+          <li data-title="4">
+              <img src="f/i/slide-2.jpg" alt="">
+              <span class="b-slider__mask0"></span>
+          </li>
+        </ul>
+
+      </div>
+      <div class="b-slider__next0"></div>
+      <div class="b-slider__pager"></div>
+      <div class="b-slider__current">
+        <a href="#">
+          <span class="b-slider__title">
+            <span class="b-slider__title-wrap" data-item="1">
+              <span class="b-slider__title-big">-<span>10</span><small> %</small></span>
+              <span class="b-slider__title-description">на каркасные дома под «ключ»</span>
+              <span class="b-slider__title-extra">Фундамент - осенью,<br>а дом - зимой!</span>
+            </span>
+            <span class="b-slider__title-wrap" data-item="2">
+              <span class="b-slider__title-big">-<span>20</span><small> %</small></span>
+              <span class="b-slider__title-description">на дома из клееного бруса</span>
+              <span class="b-slider__title-extra">Фундамент - осенью,<br>а дом - зимой!</span>
+            </span>
+            <span class="b-slider__title-wrap" data-item="3">
+              <span class="b-slider__title-big">-<span>10</span><small> %</small></span>
+              <span class="b-slider__title-description">на каркасные дома под «ключ»</span>
+              <span class="b-slider__title-extra">Фундамент - осенью,<br>а дом - зимой!</span>
+            </span>
+            <span class="b-slider__title-wrap" data-item="4">
+              <span class="b-slider__title-big">-<span>20</span><small> %</small></span>
+              <span class="b-slider__title-description">на дома из клееного бруса</span>
+              <span class="b-slider__title-extra">Фундамент - осенью,<br>а дом - зимой!</span>
+            </span>
+          </span>
+          <span class="b-slider__more"><span class="valign"></span><span class="arr">Подробнее об акции</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="b-content">
+    <div class="b-wrap">
+      <div class="clear">
+        <div class="b-block b-block_light">
+          <div class="b-block__wrap">
+            <p class="b-title">Наши технологии</p>
+          </div>
+        </div>
+        <div class="b-block b-block_cylinder">
+          <div class="b-direction">
+            <div class="b-direction__title">Дома из оцилиндрованного бревна</div>
+            <div class="b-direction__price">от <b>5000</b> <span class="rub">Р</span> за м&sup2;</div>
+            <div class="b-direction__hover"><img src="f/i/dir-1.jpg" alt=""><div class="b-direction__hover-mask"></div><div class="b-direction__cat"><p><a href="#" class="arr classic">Посмотреть проекты</a></p><p><a href="#" class="arr classic">О технологии строительства</a></p></div></div>
+          </div>
+        </div>
+        <div class="b-block b-block_profile">
+          <div class="b-direction">
+            <div class="b-direction__title">Дома из профилированного бруса</div>
+            <div class="b-direction__price">от <b>3000</b> <span class="rub">Р</span> за м&sup2;</div>
+            <div class="b-direction__hover"><img src="f/i/dir-1.jpg" alt=""><div class="b-direction__hover-mask"></div><div class="b-direction__cat"><p><a href="#" class="arr classic">Посмотреть проекты</a></p><p><a href="#" class="arr classic">О технологии строительства</a></p></div></div>
+          </div>
+        </div>
+        <div class="b-block b-block_glue">
+          <div class="b-direction">
+            <div class="b-direction__title">Дома из клееного бруса</div>
+            <div class="b-direction__price">от <b>7000</b> <span class="rub">Р</span> за м&sup2;</div>
+            <div class="b-direction__hover"><img src="f/i/dir-1.jpg" alt=""><div class="b-direction__hover-mask"></div><div class="b-direction__cat"><p><a href="#" class="arr classic">Посмотреть проекты</a></p><p><a href="#" class="arr classic">О технологии строительства</a></p></div></div>
+          </div>
+        </div>
+        <div class="b-block b-block_imitation">
+          <div class="b-direction">
+            <div class="b-direction__title">Дома из имитации клееного бруса</div>
+            <div class="b-direction__price">от <b>12000</b> <span class="rub">Р</span> за м&sup2;</div>
+            <div class="b-direction__hover"><img src="f/i/dir-1.jpg" alt=""><div class="b-direction__hover-mask"></div><div class="b-direction__cat"><p><a href="#" class="arr classic">Посмотреть проекты</a></p><p><a href="#" class="arr classic">О технологии строительства</a></p></div></div>
+          </div>
+        </div>
+        <div class="b-block b-block_frame">
+          <div class="b-direction">
+            <div class="b-direction__title">Каркасные дома</div>
+            <div class="b-direction__price">от <b>7000</b> <span class="rub">Р</span> за м&sup2;</div>
+            <div class="b-direction__hover"><img src="f/i/dir-1.jpg" alt=""><div class="b-direction__hover-mask"></div><div class="b-direction__cat"><p><a href="#" class="arr classic">Посмотреть проекты</a></p><p><a href="#" class="arr classic">О технологии строительства</a></p></div></div>
+          </div>
+        </div>
+        <div class="b-block b-block_double">
+          <a href="#" class="full classic">
+            <img src="f/i/tech.jpg" alt="" class="back">
+            <span class="b-link"></span>
+            <span class="b-block__wrap">
+              <span class="b-title">Какую технологию выбрать?</span>
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="b-company">
+        <div class="clear">
+          <div class="b-company__text">
+            <div class="b-block__wrap">
+              <p class="b-title">О компании</p>
+              <p>Глядя на хорошо сработанный сруб с идеально подогнанными бревнами, так и хочется погладить стены, проверить их на шероховатость, наличие зазоров и прочих дефектов. По привлекательности бревенчатого дома, многообразии проектов и насыщенности натуральных, теплых оттенков и говорить не приходится.</p>
+              <p>Вот уже почти двадцать лет мастера нашей компании ставят избы, бани, беседки, коттеджи и прочие бревенчатые постройки.</p>
+            </div>
+          </div>
+          <div class="b-company__categories b-title">
+
+            Мы строим <a href="#">одноэтажные</a> и <a href="#">двухэтажные</a> дома,
+            <br>из <a href="#">бруса</a> и <a href="#">каркасные</a> дома, из <a href="#">профилированного</a> и <a href="#">оцилиндрованного</a> бревна, из <a href="#">теплобруса</a>, с <a href="#">мансардой</a> и с <a href="#">гаражем</a>.
+          </div>
+        </div>
+      </div>
+      <div class="b-footer">
+        <div class="b-developer">Разработка сайта — <a href="http://www.inteo-s.ru" rel="external">Интео</a>
+        </div>
+        &copy; 2014 Nord Home
+      </div>
+    </div>
+  </div>
+
+  <div class="b-extra-forms">
+<script>
+$(function(){
+	var callbackform = $("#callbackform");
+	$("#callbackPhone").validate({
+		expression: "if (VAL && VAL!=$('#callbackPhone').attr('placeholder')) return true; else return false;",
+		message: "Укажите ваш телефон"
+	});
+	callbackform.validated(function(){
+		callbackform.find('input[type="submit"]').button('loading');
+		var parentContainer = callbackform.closest('.b-form__holder'),
+		autoHeight = parentContainer.height(),
+		curHeight = parentContainer.height(),
+		actionUrl = callbackform.attr('action');	
+		$.post(actionUrl, callbackform.serialize())
+		.done(function(data) {
+			callbackform[0].reset();
+			callbackform.find('input[type="submit"]').removeAttr('disabled').button('reset');
+			callbackform.hide();
+			parentContainer.html(data);
+			parentContainer.height(curHeight);
+			parentContainer.animate({height: autoHeight}, 100, function() {
+			parentContainer.css('height', 'auto');
+			$.fancybox.reposition();
+			});
+		});
+		//metrikaReach('callback');
+	});
+
+});
+</script>
+	<div id="callback" style="width:440px">
+			<div class="b-form b-form_popup">
+				<div class="b-form__title">Обратный звонок</div>
+				<div class="b-form__holder">
+				<form action="/send/" name="callbackform" method="post" id="callbackform">
+							<div class="form-group"><input type="text" name="person" class="form-control btn-block" id="callbackPerson" placeholder="Ваше имя"></div>
+							<div class="form-group"><input type="tel" name="phone" class="form-control btn-block" id="callbackPhone" placeholder="Телефон"></div>
+							<div class="form-group"><textarea name="message" class="form-control btn-block" id="callbackMessage" rows="4" placeholder="Тема, время звонка"></textarea></div>
+
+					<div class="inv"><input type="text" name="country" class="form-control" value=""></div>
+					<div class="b-form__submit"><input type="hidden" name="formtype" value="callback"><input class="btn btn-light" type="submit" name="submit" value="Отправить" data-loading-text="Отправка..."></div>
+				</form>
+				</div>
+			</div>
+	</div>
+
+<script>
+$(function(){
+	var callbackform = $("#orderform");
+	$("#orderPhone").validate({
+		expression: "if (VAL && VAL!=$('#orderPhone').attr('placeholder')) return true; else return false;",
+		message: "Укажите ваш телефон"
+	});
+	orderform.validated(function(){
+		orderform.find('input[type="submit"]').button('loading');
+		var parentContainer = orderform.closest('.b-form__holder'),
+		autoHeight = parentContainer.height(),
+		curHeight = parentContainer.height(),
+		actionUrl = callbackform.attr('action');	
+		$.post(actionUrl, orderform.serialize())
+		.done(function(data) {
+			orderform[0].reset();
+			orderform.find('input[type="submit"]').removeAttr('disabled').button('reset');
+			orderform.hide();
+			parentContainer.html(data);
+			parentContainer.height(curHeight);
+			parentContainer.animate({height: autoHeight}, 100, function() {
+			parentContainer.css('height', 'auto');
+			$.fancybox.reposition();
+			});
+		});
+		//metrikaReach('callback');
+	});
+
+});
+</script>
+	<div id="order" style="width:440px;">
+			<div class="b-form b-form_popup">
+				<div class="b-form__title b-form__title_decorated">Заявка на расчет</div>
+				<div class="b-form__holder">
+				<form action="/send/" name="orderform" method="post" id="orderform">
+							<div class="form-group"><input type="text" name="person" class="form-control btn-block" id="orderPerson" placeholder="Ваше имя"></div>
+							<div class="form-group"><input type="tel" name="phone" class="form-control btn-block" id="orderPhone" placeholder="Телефон"></div>
+							<div class="form-group"><textarea name="message" class="form-control btn-block" id="orderMessage" rows="4" placeholder="Описание объекта"></textarea></div>
+
+					<div class="inv"><input type="text" name="country" class="form-control" value=""></div>
+					<div class="b-form__submit"><input type="hidden" name="formtype" value="order"><input class="btn btn-light" type="submit" name="submit" value="Отправить" data-loading-text="Отправка..."></div>
+				</form>
+				</div>
+			</div>
+	</div>
+
+
+</div>
+</body>
+
+</html>
